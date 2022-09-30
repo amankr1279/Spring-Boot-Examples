@@ -1,0 +1,8 @@
+package com.example.demo.model.controller;
+
+public class AlienController {
+	
+	public String home() {
+		return "home.jsp";
+	}
+}

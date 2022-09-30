@@ -1,0 +1,24 @@
+package com.example.demo;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HomeController {
+	
+	@RequestMapping("home")
+	public String home(HttpServletRequest req) {
+		String name = req.getParameter("name");
+		System.out.println("Holaaa..." + name);
+		
+		// let's pass that param to webpage
+		HttpSession session = req.getSession();
+		session.setAttribute("uname", name);
+		
+		return "home"; // causes download of this file as by default Spring boot doesn't 
+		// officially support jasper files. So we added tomcat-jasper in dependencies and now it works
+	}
+}

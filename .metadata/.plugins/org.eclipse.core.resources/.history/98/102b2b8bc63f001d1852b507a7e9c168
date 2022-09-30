@@ -1,0 +1,16 @@
+package com.example.demo;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class HomeController {
+	
+	@RequestMapping("home")
+	// @ResponseBody // this ensures no download
+	public String home() {
+		System.out.println("Holaaa...");
+		return "home.jsp"; // causes download of this file as by default Spring boot doesn't 
+	}
+}
